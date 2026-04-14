@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Playfair+Display:ital,wght@1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Playfair Display", serif;
+
+  --color-cream: #faf8f4;
+  --color-warm: #f5f0e8;
+  --color-teal: #2a9d8f;
+  --color-teal-dark: #1a6b60;
+  --color-teal-light: #e0f5f1;
+  --color-rose: #c45c7a;
+  --color-rose-dark: #8f3d57;
+  --color-rose-light: #fce8ef;
+  --color-gold: #c9934a;
+  --color-gold-dark: #a67635;
+  --color-gold-light: #fdf3e7;
+  --color-sage: #7a9e8a;
+  --color-charcoal: #1c1f2b;
+  --color-ink: #2d3142;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-cream text-ink antialiased;
+  }
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+@keyframes slowZoom2 {
+  from { transform: scale(1.06); }
+  to { transform: scale(1); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}

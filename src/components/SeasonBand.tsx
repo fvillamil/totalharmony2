@@ -7,23 +7,23 @@ export default function SeasonBand() {
   const { language, t } = useLanguage();
 
   return (
-    <section className="bg-gradient-to-br from-[#009999] via-[#007a7a] to-[#005c5c] py-20 px-6 md:px-14 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-[#009999] via-[#007a7a] to-[#005c5c] py-16 md:py-20 px-6 md:px-14 relative overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute -top-15 -right-15 w-[400px] h-[400px] rounded-full bg-radial-gradient from-gold/18 to-transparent pointer-events-none" />
       <div className="absolute -bottom-10 -left-10 w-[280px] h-[280px] rounded-full bg-radial-gradient from-teal/14 to-transparent pointer-events-none" />
 
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-[#f5c580] px-4.5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase mb-5">
+          <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-[#f5c580] px-4 py-1.5 rounded-full text-[10px] md:text-[11px] font-bold tracking-[0.18em] uppercase mb-5">
             🌸 {t('Seasonal Service · Limited Spots', 'Servicio de Temporada · Cupos Limitados')}
           </div>
           
-          <h2 className="font-serif text-5xl leading-tight text-white mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight text-white mb-4">
             {language === 'en' ? (
               <>Closet Reset<br /><em className="text-[#8ee8d6] not-italic">Spring — Summer</em></>
             ) : (
@@ -31,7 +31,7 @@ export default function SeasonBand() {
             )}
           </h2>
 
-          <p className="text-white/85 leading-relaxed mb-7 text-lg">
+          <p className="text-white/85 leading-relaxed mb-7 text-base md:text-lg">
             {t(
               'Stop storing clothes you no longer wear. It is time to renew your closet for this new season.',
               'Deja de guardar ropa que ya no usas. Es momento de renovar tu clóset para esta nueva temporada.'

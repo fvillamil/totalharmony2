@@ -46,18 +46,18 @@ export default function About() {
             <span className="w-[22px] h-[0.5px] bg-teal" />
             {t('About Yadira', 'Sobre Yadira')}
           </div>
-          <h2 className="font-serif text-5xl leading-tight text-charcoal mb-1.5">Yadira Florez González</h2>
-          <div className="text-lg text-teal font-serif italic mb-6.5">
+          <h2 className="font-serif text-4xl md:text-5xl leading-tight text-charcoal mb-1.5">Yadira Florez González</h2>
+          <div className="text-base md:text-lg text-teal font-serif italic mb-6.5">
             {t('Trained Interior Planner · Wellbeing Facilitator', 'Trained Interior Planner · Facilitadora de Bienestar')}
           </div>
-          <p className="text-[15px] text-gray leading-relaxed mb-3.5">
+          <p className="text-sm md:text-[15px] text-gray leading-relaxed mb-3.5">
             {language === 'en' ? (
               <>I don't just organize spaces. I help moms and professional women reclaim their time, clarity and mental wellbeing through <strong>Conscious Order</strong>. My approach integrates the functional, emotional and identity dimension.</>
             ) : (
               <>No solo organizo espacios. Ayudo a mamás y mujeres profesionales a recuperar su tiempo, claridad y bienestar mental a través del <strong>Orden Consciente</strong>. Mi enfoque integra la dimensión funcional, emocional y de identidad.</>
             )}
           </p>
-          <p className="text-[15px] text-gray leading-relaxed mb-3.5">
+          <p className="text-sm md:text-[15px] text-gray leading-relaxed mb-3.5">
             {t(
               'Certified as an International Trained Interior Planner by Things in Place, USA (2024). Background in Marketing & Business Management. I work with you in a personalized way, achieving the wellbeing you expect.',
               'Certificada como Trained Interior Planner Internacional por Things in Place, USA (2024). Formación en Marketing y Gestión Empresarial. Trabajo contigo de una forma personalizada logrando el bienestar que esperas.'

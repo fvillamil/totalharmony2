@@ -44,7 +44,7 @@ export default function Hero() {
             {t('✦ Spring · Summer Campaign 2026', '✦ Campaña Primavera · Verano 2026')}
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl leading-[1.02] text-ink mb-5">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[1.1] md:leading-[1.02] text-ink mb-5">
             {language === 'en' ? (
               <>Your space.<br />Your life.<br /><em className="text-teal not-italic">Finally aligned.</em></>
             ) : (
@@ -52,23 +52,23 @@ export default function Hero() {
             )}
           </h1>
 
-          <p className="text-lg md:text-xl text-ink font-medium leading-relaxed mb-9 max-w-[540px]">
+          <p className="text-base sm:text-lg md:text-xl text-ink font-medium leading-relaxed mb-9 max-w-[540px]">
             {t(
               'I help moms and busy professional women reclaim control of their homes through Conscious Order functional, sustainable systems that reduce stress and free your time.',
               'Ayudo a mamás y mujeres profesionales ocupadas a recuperar el control de su hogar a través del Orden Consciente, sistemas funcionales y sostenibles que reducen el estrés y liberan tu tiempo.'
             )}
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
             <a 
               href="#contact" 
-              className="inline-flex items-center gap-3 bg-rose hover:bg-rose-dark text-white px-10 py-5 rounded-full font-bold text-base tracking-wide transition-all duration-300 shadow-lg shadow-rose/40 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-3 bg-rose hover:bg-rose-dark text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-sm md:text-base tracking-wide transition-all duration-300 shadow-lg shadow-rose/40 hover:-translate-y-0.5"
             >
               📅 {t('Book your Harmony Diagnosis in 2 min', 'Agenda tu Diagnóstico en 2 min')}
             </a>
             <a 
               href="#services" 
-              className="inline-flex items-center gap-2 bg-ink/5 border border-ink/20 hover:bg-ink/10 hover:border-ink/40 text-ink px-9 py-5 rounded-full font-bold text-base transition-all duration-300 backdrop-blur-sm"
+              className="inline-flex items-center justify-center gap-2 bg-ink/5 border border-ink/20 hover:bg-ink/10 hover:border-ink/40 text-ink px-8 md:px-9 py-4 md:py-5 rounded-full font-bold text-sm md:text-base transition-all duration-300 backdrop-blur-sm"
             >
               {t('See services →', 'Ver servicios →')}
             </a>

@@ -81,6 +81,20 @@ export default function Map() {
             <rect x="548" y="252" width="66" height="26" rx="7" fill="rgba(26,158,143,.22)" stroke="rgba(26,158,143,.4)" strokeWidth="1"/>
             <text x="581" y="270" fill="#8ee8d6" fontSize="12" fontWeight="600" textAnchor="middle">Fairfax</text>
 
+            {/* Ashburn */}
+            <circle cx="420" cy="190" r="22" fill="url(#glowT)" opacity=".7"/>
+            <circle cx="420" cy="190" r="9" fill="#1a9e8f"/>
+            <circle cx="420" cy="190" r="4" fill="white"/>
+            <rect x="438" y="177" width="74" height="26" rx="7" fill="rgba(26,158,143,.22)" stroke="rgba(26,158,143,.4)" strokeWidth="1"/>
+            <text x="475" y="195" fill="#8ee8d6" fontSize="12" fontWeight="600" textAnchor="middle">Ashburn</text>
+
+            {/* Burke */}
+            <circle cx="500" cy="320" r="22" fill="url(#glowT)" opacity=".7"/>
+            <circle cx="500" cy="320" r="9" fill="#1a9e8f"/>
+            <circle cx="500" cy="320" r="4" fill="white"/>
+            <rect x="518" y="307" width="60" height="26" rx="7" fill="rgba(26,158,143,.22)" stroke="rgba(26,158,143,.4)" strokeWidth="1"/>
+            <text x="548" y="325" fill="#8ee8d6" fontSize="12" fontWeight="600" textAnchor="middle">Burke</text>
+
             {/* Legend */}
             <rect x="24" y="438" width="230" height="40" rx="10" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.09)" strokeWidth="1"/>
             <circle cx="44" cy="458" r="7" fill="#1a9e8f"/><circle cx="44" cy="458" r="3" fill="white"/>

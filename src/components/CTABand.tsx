@@ -19,7 +19,7 @@ export default function CTABand() {
           {t('Ready to start?', '¿Lista para empezar?')}
         </div>
 
-        <h2 className="font-serif text-5xl md:text-[58px] text-white mb-4.5">
+        <h2 className="font-serif text-4xl md:text-[58px] text-white mb-4.5">
           {language === 'en' ? (
             <>Your most functional life<br />starts with <em className="italic opacity-88 not-italic">one decision.</em></>
           ) : (
@@ -27,7 +27,7 @@ export default function CTABand() {
           )}
         </h2>
 
-        <p className="text-white/82 text-lg max-w-[520px] mx-auto mb-9 leading-relaxed">
+        <p className="text-white/82 text-base md:text-lg max-w-[520px] mx-auto mb-9 leading-relaxed">
           {t(
             'Schedule your free Harmony Diagnosis. 20 minutes. No pressure. Just an honest conversation about your space and what we can achieve together.',
             'Agenda tu Diagnóstico de Armonía gratuito. 20 minutos. Sin presión. Solo una conversación honesta sobre tu espacio y lo que podemos lograr juntas.'
@@ -39,7 +39,7 @@ export default function CTABand() {
             href="https://wa.me/14075065027" 
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-white text-rose px-10 py-5 rounded-full font-bold text-base shadow-lg shadow-black/18 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/24 hover:scale-105"
+            className="inline-flex items-center justify-center gap-2.5 bg-white text-rose px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-sm md:text-base shadow-lg shadow-black/18 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/24 hover:scale-105"
           >
             📅 {t('Book my free diagnosis via WhatsApp', 'Agendar mi diagnóstico gratis por WhatsApp')}
           </a>

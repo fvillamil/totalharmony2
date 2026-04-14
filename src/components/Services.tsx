@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { Check } from 'lucide-react';
 import { cn } from '../lib/utils';
@@ -65,6 +65,26 @@ function ServiceCard({ num, img, title, desc, tags, price, priceSub }: ServiceCa
 
 export default function Services() {
   const { language, t } = useLanguage();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const sliderImages = [
+    "https://totalharmonyservices.com/imgtotal/total12.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total8.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total9.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total5.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total6.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total17.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total18.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total20.jpeg",
+    "https://totalharmonyservices.com/imgtotal/total19.jpeg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [sliderImages.length]);
 
   return (
     <section className="py-25 px-6 md:px-14 bg-cream" id="services">
@@ -91,12 +111,19 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="h-full overflow-hidden hidden md:block">
-            <img 
-              src="https://totalharmonyservices.com/imgtotal/total12.jpeg" 
-              alt="RESET Essential Premium"
-              className="w-full h-full object-cover min-h-[380px]"
-            />
+          <div className="h-full overflow-hidden hidden md:block relative">
+            <AnimatePresence mode="wait">
+              <motion.img 
+                key={currentSlide}
+                src={sliderImages[currentSlide]} 
+                alt="RESET Essential Premium"
+                initial={{ opacity: 0, scale: 1.1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </AnimatePresence>
           </div>
           <div className="p-8 md:p-12 flex flex-col justify-center">
             <div className="inline-flex items-center gap-2 bg-gold/20 border border-gold/40 text-[#f5c580] px-4.5 py-1.5 rounded-full text-[11px] font-bold tracking-[0.18em] uppercase mb-5 w-fit">

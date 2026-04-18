@@ -10,8 +10,8 @@ export default function Method() {
     { char: 'R', en: 'Recognize', es: 'Reconocer', descEn: 'Understand what\'s happening in the space and why', descEs: 'Entender qué pasa en el espacio y por qué', color: 'bg-[#e0f5f1] text-[#1a6b60]' },
     { char: 'E', en: 'Eliminate', es: 'Eliminar', descEn: 'Guided depuration with decision criteria, not overwhelm', descEs: 'Depuración guiada con criterio, sin abrumarte', color: 'bg-[#b2e6dc] text-[#1a6b60]' },
     { char: 'S', en: 'Systematize', es: 'Sistematizar', descEn: 'Build functional, logical and sustainable structures', descEs: 'Construir estructuras funcionales y sostenibles', color: 'bg-[#8ee8d6] text-[#1a6b60]' },
-    { char: 'E', en: 'Stabilize', es: 'Estabilizar', descEn: 'Implement habits that sustain the system long-term', descEs: 'Implementar hábitos que sostengan el sistema', color: 'bg-[#2a9d8f] text-white' },
-    { char: 'T', en: 'Transform', es: 'Transformar', descEn: 'Measurable results: time, clarity and wellbeing', descEs: 'Resultados medibles: tiempo, claridad y bienestar', color: 'bg-[#1a6b60] text-white' },
+    { char: 'E', en: 'Stabilize', es: 'Estabilizar', descEn: 'Implement habits that sustain the system long-term', descEs: 'Implementar hábitos que sostengan el sistema', color: 'bg-teal text-white' },
+    { char: 'T', en: 'Transform', es: 'Transformar', descEn: 'Measurable results: time, clarity and wellbeing', descEs: 'Resultados medibles: tiempo, claridad y bienestar', color: 'bg-teal-dark text-white' },
   ];
 
   return (
@@ -45,7 +45,7 @@ export default function Method() {
           variants={{
             hidden: {},
             visible: {
-              transition: { staggerChildren: 0 }
+              transition: { staggerChildren: 0.1 }
             }
           }}
         >
@@ -60,7 +60,7 @@ export default function Method() {
               visible: { 
                 scaleX: [0, 0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1],
                 transition: {
-                  duration: 16, 
+                  duration: 4, 
                   ease: "linear",
                   times: [0, 0.1875, 0.25, 0.4375, 0.5, 0.6875, 0.75, 0.9375, 1],
                 }
@@ -72,16 +72,17 @@ export default function Method() {
             <div key={i} className="text-center relative z-10 px-3">
               <motion.div 
                 className={cn(
-                  "w-[72px] h-[72px] rounded-full flex items-center justify-center mx-auto mb-5 font-serif text-[64px] font-black leading-none overflow-hidden",
+                  "w-[72px] h-[72px] rounded-full flex items-center justify-center mx-auto mb-5 font-serif text-[64px] font-black leading-none overflow-hidden transition-all duration-500",
                   step.color
                 )}
                 variants={{
-                  hidden: { scale: 0.8, opacity: 0.2, filter: "grayscale(100%)" },
+                  hidden: { scale: 0.8, opacity: 0.2, filter: "grayscale(100%)", boxShadow: "0 0 0 rgba(0,0,0,0)" },
                   visible: {
                     scale: [0.8, 1.15, 1], 
                     opacity: [0.2, 1, 1],
                     filter: ["grayscale(100%)", "grayscale(0%)", "grayscale(0%)"],
-                    transition: { delay: i * 4, duration: 1.2, times: [0, 0.4, 1] }
+                    boxShadow: ["0 0 0 rgba(142,232,214,0)", "0 0 20px rgba(142,232,214,0.4)", "0 0 10px rgba(142,232,214,0.2)"],
+                    transition: { delay: i * 1, duration: 0.8, times: [0, 0.4, 1] }
                   }
                 }}
               >
@@ -94,7 +95,7 @@ export default function Method() {
                   hidden: { color: "rgba(255,255,255,0.2)" },
                   visible: {
                     color: ["rgba(255,255,255,0.2)", "#8ee8d6", "#ffffff"],
-                    transition: { delay: i * 4, duration: 1.5, times: [0, 0.3, 1] }
+                    transition: { delay: i * 1, duration: 1, times: [0, 0.3, 1] }
                   }
                 }}
               >
@@ -107,7 +108,7 @@ export default function Method() {
                   hidden: { color: "rgba(255,255,255,0.2)" },
                   visible: {
                     color: ["rgba(255,255,255,0.2)", "#ffffff", "rgba(255,255,255,0.7)"],
-                    transition: { delay: i * 4, duration: 1.5, times: [0, 0.3, 1] }
+                    transition: { delay: i * 1, duration: 1, times: [0, 0.3, 1] }
                   }
                 }}
               >

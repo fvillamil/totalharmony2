@@ -7,10 +7,45 @@ import { cn } from '../lib/utils';
 export default function Contact() {
   const { language, t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      firstName: formData.get('firstName'),
+      lastName: formData.get('lastName'),
+      phone: formData.get('phone'),
+      email: formData.get('email'),
+      location: formData.get('location'),
+      service: formData.get('service'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (err) {
+      console.error(err);
+      setError(t('An error occurred. Please try again later or contact me via WhatsApp.', 'Ocurrió un error. Por favor intenta más tarde o contáctame por WhatsApp.'));
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -97,33 +132,38 @@ export default function Contact() {
             </motion.div>
           ) : (
             <form className="flex flex-col gap-3.5" onSubmit={handleSubmit}>
+              {error && (
+                <div className="bg-rose/10 border border-rose/30 p-4 rounded-xl text-rose-dark text-sm mb-2">
+                  {error}
+                </div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">{t('First name', 'Nombre')}</label>
-                  <input required type="text" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
+                  <input name="firstName" required type="text" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">{t('Last name', 'Apellido')}</label>
-                  <input required type="text" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
+                  <input name="lastName" required type="text" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">{t('Phone', 'Teléfono')}</label>
-                  <input required type="tel" placeholder="(000) 000-0000" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
+                  <input name="phone" required type="tel" placeholder="(000) 000-0000" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
                 </div>
                 <div className="flex flex-col gap-1.5">
                   <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">Email</label>
-                  <input required type="email" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
+                  <input name="email" required type="email" className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
                 </div>
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">{t('City / Location', 'Ciudad / Ubicación')}</label>
-                <input required type="text" placeholder="Alexandria, Fairfax, Online..." className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
+                <input name="location" required type="text" placeholder="Alexandria, Fairfax, Online..." className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors" />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">{t('Service of interest', 'Servicio de interés')}</label>
-                <select required className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors appearance-none">
+                <select name="service" required className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors appearance-none">
                   <option value="">{t('Select a service', 'Seleccionar un servicio')}</option>
                   <option>🌸 Closet Reset Spring–Summer</option>
                   <option>⭐ RESET Essential Premium</option>
@@ -134,10 +174,21 @@ export default function Contact() {
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-[11px] font-bold tracking-widest uppercase text-charcoal">{t('Tell me about your space', 'Cuéntame sobre tu espacio')}</label>
-                <textarea required className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors resize-y min-h-[110px]" />
+                <textarea name="message" required className="p-3.5 border-2 border-gray/20 rounded-xl font-sans text-[15px] text-charcoal bg-white focus:border-teal outline-none transition-colors resize-y min-h-[110px]" />
               </div>
-              <button type="submit" className="bg-gradient-to-br from-teal-dark to-teal text-white border-none p-4.5 rounded-full font-sans text-[15px] font-bold cursor-pointer transition-all duration-300 shadow-lg shadow-teal/28 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-teal/38">
-                📅 {t('Request my free harmony diagnosis →', 'Solicitar mi diagnóstico de armonía gratis →')}
+              <button 
+                type="submit" 
+                disabled={loading}
+                className={cn(
+                  "bg-gradient-to-br from-teal-dark to-teal text-white border-none p-4.5 rounded-full font-sans text-[15px] font-bold cursor-pointer transition-all duration-300 shadow-lg shadow-teal/28 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-teal/38 flex items-center justify-center gap-2",
+                  loading && "opacity-70 cursor-not-allowed"
+                )}
+              >
+                {loading ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>📅 {t('Request my free harmony diagnosis →', 'Solicitar mi diagnóstico de armonía gratis →')}</>
+                )}
               </button>
               <p className="text-xs text-gray text-center mt-2">
                 {t('No commitment · Response in less than 24 hours', 'Sin compromiso · Respuesta en menos de 24 horas')}

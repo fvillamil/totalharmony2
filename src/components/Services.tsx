@@ -111,7 +111,7 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="h-full overflow-hidden hidden md:block relative">
+          <div className="h-[300px] md:h-full overflow-hidden relative">
             <AnimatePresence mode="wait">
               <motion.img 
                 key={currentSlide}
@@ -208,8 +208,6 @@ export default function Services() {
               { en: 'Unpacking', es: 'Desembalaje', color: 'gold' },
               { en: 'Post-move org', es: 'Org. post mudanza', color: 'gold' },
             ]}
-            price={t('From $550', 'Desde $550')}
-            priceSub={t('depending on scope', 'según alcance')}
           />
         </div>
       </div>

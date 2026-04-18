@@ -36,18 +36,18 @@ export default function CTABand() {
 
         <div className="flex justify-center">
           <a 
-            href="https://wa.me/14075065027" 
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact" 
             className="inline-flex items-center justify-center gap-2.5 bg-white text-rose px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-sm md:text-base shadow-lg shadow-black/18 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/24 hover:scale-105"
           >
-            📅 {t('Book my free diagnosis via WhatsApp', 'Agendar mi diagnóstico gratis por WhatsApp')}
+            📅 {t('Book my free diagnosis', 'Agendar mi diagnóstico gratuito')}
           </a>
         </div>
 
-        <p className="text-white/50 text-[13px] mt-4.5">
-          {t('✅ Free Estimate · No commitment · Response in less than 24 hours', '✅ Estimado Gratis · Sin compromiso · Respuesta en menos de 24 horas')}
-        </p>
+        <div className="mt-8 flex justify-center">
+          <p className="text-white bg-white/10 backdrop-blur-md px-6 py-3 rounded-full text-[14px] md:text-[15px] font-medium shadow-sm border border-white/20">
+            {t('✅ Free Estimate · No commitment · Response in less than 24 hours', '✅ Estimado Gratis · Sin compromiso · Respuesta en menos de 24 horas')}
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -34,6 +34,14 @@ export default function Testimonials() {
       locationEs: "Mantenimiento de Hogar · Virginia",
       initial: "P",
       color: "bg-gradient-to-br from-gold to-gold-dark"
+    },
+    {
+      quote: "Yadira is amazing! Organized my house and my life! . My husband was extremely happy with the results and that’s rare!. I would absolutely recommend Yadira to organize your house or even just one room. After she organized my house I have also hired her to do a monthly cleaning at my house and I am very satisfied with the results. Don’t wait too long to book her!.",
+      author: "Laura Sosa",
+      locationEn: "Home Organization · Virginia",
+      locationEs: "Organización de Hogar · Virginia",
+      initial: "L",
+      color: "bg-gradient-to-br from-teal-dark to-charcoal"
     }
   ];
 
@@ -73,21 +81,21 @@ export default function Testimonials() {
         >
           <div className="flex gap-6 transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]" style={{ transform: `translateX(-${current * 100}%)` }}>
             {testimonials.map((testi, i) => (
-              <div key={i} className="flex-shrink-0 w-full">
-                <div className="rounded-3xl p-10 md:p-14 relative overflow-hidden shadow-lg bg-white text-charcoal">
-                  <div className="absolute top-[-6px] right-4.5 font-serif text-[120px] leading-none opacity-10 pointer-events-none text-teal">
+              <div key={i} className="flex-shrink-0 w-full min-h-full">
+                <div className="rounded-3xl p-7 md:p-14 relative overflow-hidden shadow-lg bg-white text-charcoal h-full flex flex-col justify-center">
+                  <div className="absolute top-[-10px] right-2 md:top-[-6px] md:right-4.5 font-serif text-[80px] md:text-[120px] leading-none opacity-10 pointer-events-none text-teal">
                     "
                   </div>
                   
-                  <div className="text-amber-400 text-base tracking-[2px] mb-3.5">
+                  <div className="text-amber-400 text-xs md:text-base tracking-[2px] mb-2 md:mb-3.5">
                     ★★★★★
                   </div>
 
-                  <blockquote className="font-serif text-xl md:text-2xl italic leading-relaxed mb-8 text-charcoal">
+                  <blockquote className="font-serif text-base md:text-2xl italic leading-relaxed mb-6 md:mb-8 text-charcoal">
                     {testi.quote}
                   </blockquote>
 
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center justify-between gap-4 mt-auto">
                     <div className="flex items-center gap-3.5">
                       <div className={cn(
                         "w-11 h-11 rounded-full flex items-center justify-center font-bold text-white text-base shrink-0",

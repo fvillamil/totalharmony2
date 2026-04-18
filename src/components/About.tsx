@@ -16,13 +16,13 @@ export default function About() {
     <section className="py-25 px-6 md:px-14 bg-white" id="about">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
         <motion.div 
-          className="relative hidden md:flex flex-col items-center gap-6"
+          className="relative flex flex-col items-center gap-6"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="w-[380px] h-[480px] rounded-[26px] overflow-hidden shadow-2xl border-3 border-teal relative">
+          <div className="w-full max-w-[380px] aspect-[4/5] md:h-[480px] rounded-[26px] overflow-hidden shadow-2xl border-3 border-teal relative">
             <img 
               src="https://totalharmonyservices.com/imgtotal/total00.jpg" 
               alt="Yadira Florez González"

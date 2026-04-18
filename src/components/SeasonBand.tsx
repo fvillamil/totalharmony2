@@ -23,7 +23,7 @@ export default function SeasonBand() {
             🌸 {t('Seasonal Service · Limited Spots', 'Servicio de Temporada · Cupos Limitados')}
           </div>
           
-          <h2 className="font-serif text-4xl md:text-5xl leading-tight text-white mb-4">
+          <h2 className="font-serif text-[46px] md:text-[54px] font-bold leading-tight text-white mb-4">
             {language === 'en' ? (
               <>Closet Reset<br /><em className="text-[#8ee8d6] not-italic">Spring — Summer</em></>
             ) : (
@@ -40,10 +40,10 @@ export default function SeasonBand() {
 
           <div className="flex flex-col gap-2.5 mb-8">
             {[
-              { icon: '❄️', en: 'Winter clothes still taking up space', es: 'Ropa de invierno aún ocupando espacio' },
-              { icon: '👗', en: 'Clothes you never wear', es: 'Prendas que ya no usas' },
-              { icon: '😩', en: 'Full closet, zero real options', es: 'Clóset lleno, sin opciones claras' },
-              { icon: '🔁', en: 'Same combinations every day', es: 'Mismas combinaciones todos los días' },
+              { icon: '❄️', en: 'Winter clothes still taking up space?', es: '¿Ropa de invierno aún ocupando espacio?' },
+              { icon: '👗', en: 'Clothes you never wear?', es: '¿Prendas que ya no usas?' },
+              { icon: '😩', en: 'Full closet, zero real options?', es: '¿Clóset lleno, sin opciones claras?' },
+              { icon: '🔁', en: 'Same combinations every day?', es: '¿Mismas combinaciones todos los días?' },
             ].map((item, i) => (
               <div key={i} className="flex items-center gap-3 text-white/75 text-[15px]">
                 <div className="w-7 h-7 rounded-full bg-rose/20 border border-rose/40 flex items-center justify-center text-xs shrink-0">

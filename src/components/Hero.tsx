@@ -46,9 +46,9 @@ export default function Hero() {
 
           <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[1.1] md:leading-[1.02] text-ink mb-5">
             {language === 'en' ? (
-              <>Your space.<br />Your life.<br /><em className="text-teal not-italic">Finally aligned.</em></>
+              <>Your closet also needs<br />to change seasons.<br /><em className="text-teal not-italic">It's time to let go, renew, and simplify.</em></>
             ) : (
-              <>Tu espacio.<br />Tu vida.<br /><em className="text-teal not-italic">Por fin en armonía.</em></>
+              <>Tu clóset también necesita<br />cambiar de estación.<br /><em className="text-teal not-italic">Es momento de soltar, renovar y simplificar.</em></>
             )}
           </h1>
 
